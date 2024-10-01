@@ -1,0 +1,80 @@
+nav{
+    background-color: #3c3d3c;
+   
+}
+nav ul{
+    overflow: hidden;
+    padding: 5px;
+    padding-left: 600px;
+    
+}
+nav li{
+    float: left;
+    list-style: none;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+ 
+}
+.introduction{
+    background-color: rgb(232, 236, 239);  
+    height: 100px; 
+}
+.intro h{
+    font-size: 20px;
+}
+section{
+    background-color: rgb(232, 236, 239); 
+    padding:12px 20px;  
+}
+.container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+}
+.container div{
+    
+    height: 150px;
+    width: 335px;
+    margin:60px;
+    text-align: left;
+    padding:10px;
+    border: 1px solid black;
+    
+}
+.container h{
+    font-size: 20px;
+    padding:12px 20px ; 
+    
+}
+.container section{
+    background-color: white;
+}
+.psclasses h{
+    font-size: 30px; 
+}
+ a:hover {
+    color: rgb(115, 0, 128);
+  }
+  
+a:focus {
+    color: blue;
+  }
+  
+ a:active {
+    color: red;
+  }
+a:visited {
+    color: green;
+  }
+.psclasses p::before {
+    content: "Start:";
+    color:green;
+  }
+.psclasses p::after {
+    content: " :End";
+    color:green;
+  }
