@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student grade</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;  
+        }
+
+        .container{
+            border: 1px solid black;
+            box-sizing: border-box;
+            padding: 15px 27px ;
+            text-align: center;   
+        }
+        input[type="number"], input[type="text"] {
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box; 
+        }
+        button{
+            color:white;
+            background-color: rgb(12, 24, 161);
+        }
+
+        ul{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Grade Manager</h2><br>
+        <label for="studentname">Student Name:</label> <br>
+        <input type="text" id="studentname" placeholder="Enter student name"><br>
+        <label for="studentgrade">Grade:</label><br>
+        <input type="number" id="studentgrade" placeholder="Enter student grade"  min="0" max="100"><br>
+        <button onclick="add()">Add Student</button><br><br>
+        <button onclick="grade()">Display Grades</button><br>
+        <ul id="list"></ul>
+        <button onclick="average()">Calculate Average Grade</button><br>
+        <p class="average" id>Average Grade: <span id="averagegrade"></span></p>
+    </div>
+    <script src="grade.js"></script>
+</body>
+</html>
+
