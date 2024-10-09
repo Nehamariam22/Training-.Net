@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;  
+        }
+
+        .container{
+            border: 1px solid black;
+            box-sizing: border-box;
+            padding: 15px 27px ;
+             
+        }
+        input[type="text"] {
+          
+            width: 95%;
+            padding: 10px;
+            margin: 10px 0;
+          box-sizing: border-box;
+        }
+        .search{
+            display:flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+    
+        button{
+          
+            color:white;
+            background-color: rgb(12, 24, 161);
+            width: 50%;
+            padding: 10px;
+            
+        }
+        .weather-info{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Weather Dashboard</h1>
+        <div class="search" >
+        <input type="text" id="city-search" placeholder="Enter city name">
+        <button >Search</button> </div>
+        <div class="weather-info">
+        <p >City Name:</p><span id="city"></span>
+        </div>
+        <div class="weather-info">
+         <p> Temperature: </p><span id="temperature"></span>
+        </div>
+        <div class="weather-info">
+          <p>Humidity:</p> <span id="humidity"></span>
+        </div>
+        <div class="weather-info">
+         <img id="weather-icon" src="" alt="">
+        </div>
+    </div>
+
+    </div>
+    <script>
+        const apiKey ="3a257519829cf156c40e30cfeb90308b";
+        const apiUrl="https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
+
+        const searchInput=document.querySelector(".search input");
+        const searchBtn=document.querySelector(".search button");
+        async function checkWeather(city) {
+            const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+            var data = await response.json(); //all the information
+
+            console.log(data);
+                document.getElementById('city').textContent = data.name;
+                document.getElementById('temperature').textContent =data.main.temp +"°C";
+                document.getElementById('humidity').textContent = data.main.humidity + "%";
+            // Get the weather icon from the API response
+    const iconCode = data.weather[0].icon;
+    const iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
+    document.getElementById('weather-icon').src = iconUrl;
+    document.getElementById('weather-icon').alt = data.weather[0].description;
+
+        }
+
+        searchBtn.addEventListener("click",() =>{
+            checkWeather(searchInput.value);
+        })
+
+      
+    </script>
+</body>
+</html>
