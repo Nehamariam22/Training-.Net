@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>inventory</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;  
+        }
+
+        .container{
+            border: 1px solid black;
+            box-sizing: border-box;
+            padding: 15px 27px ;
+             
+        }
+        input[type="number"], input[type="text"] {
+           
+            width: 95%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box; 
+        }
+        button{
+            color:white;
+            background-color: rgb(12, 24, 161);
+            width: 95%;
+            height:30px;
+        }
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        input {
+            margin: 5px;
+        }
+        #inventory-table {
+            display: none; /* Initially hide the inventory table */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Inventory System</h2><br>
+        <label for="name"> Name:</label> <br>
+        <input type="text" id="name" placeholder="Enter product name"><br>
+        <label for="price">Price:</label><br>
+        <input type="number" id="price" placeholder="Enter product price" ><br>
+        <label for="quantity">Quantity:</label><br>
+        <input type="number" id="quantity" placeholder="Enter product quantity" ><br>
+        <button onclick="addProduct()">Add Product</button>
+
+    <h2>Inventory List</h2>
+    <table id="inventory-table">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+         
+        </tbody>
+    </table>
+    </div>
+<script src="inventory.js"></script>
+</body>
+</html>
+
