@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="registeration.css">
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <div class="registration-container">
+        <form id="registrationForm" class="registration-form" novalidate>
+            <h2>Register</h2>
+
+            <!-- First Name -->
+            <div class="input-group">
+                <input type="text" id="firstName" name="firstName" required>
+                <label for="firstName">First Name</label>
+                <span class="error-message" id="firstNameError">Only alphabets allowed</span>
+            </div>
+
+            <!-- Last Name -->
+            <div class="input-group">
+                <input type="text" id="lastName" name="lastName" required>
+                <label for="lastName">Last Name</label>
+                <span class="error-message" id="lastNameError">Only alphabets allowed</span>
+            </div>
+
+            <!-- Date of Birth -->
+            <div class="input-group">
+                <input type="date" id="dob" name="dob" >
+                <label for="dob">Date of Birth</label>
+            </div>
+
+            <!-- Gender -->
+            <div class="gender-group">
+                <label>Gender:</label>
+                <input type="radio" id="male" name="gender" value="male" required> Male
+                <input type="radio" id="female" name="gender" value="female" required> Female
+                <input type="radio" id="other" name="gender" value="other" required> Other
+            </div>
+
+            <!-- Phone Number -->
+            <div class="input-group">
+                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Phone Number">
+                <span class="error-message" id="phoneError">Invalid phone number format</span>
+            </div>
+
+            <!-- Email -->
+            <div class="input-group">
+                <input type="email" id="email" name="email" required>
+                <label for="email">Email Address</label>
+                <span class="error-message" id="emailError">Invalid email format</span>
+            </div>
+
+            <!-- Address -->
+            <div class="input-group">
+                <textarea id="address" name="address" rows="3" required></textarea>
+                <label for="address">Address</label>
+            </div>
+
+            <!-- State -->
+            <div class="input-group">
+                <select id="state" name="state" required>
+                    <option value="">Select State</option>
+                    <option value="kerala">kerala</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                </select>
+                <label for="state">State</label>
+            </div>
+
+            <!-- City (updates based on state) -->
+            <div class="input-group">
+                <select id="city" name="city" required>
+                    <option value="">Select City</option>
+                </select>
+                <label for="city">City</label>
+            </div>
+
+            <!-- Username -->
+            <div class="input-group">
+                <input type="text" id="username" name="username" required>
+                <label for="username">Username</label>
+                <span class="error-message" id="usernameError">Only alphabets and numbers</span>
+            </div>
+
+            <!-- Password -->
+            <div class="input-group">
+                <input type="password" id="password" name="password" required>
+                <label for="password">Password</label>
+                <span class="error-message" id="passwordError">Password is required</span>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="input-group">
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <label for="confirmPassword">Confirm Password</label>
+                <span class="error-message" id="confirmPasswordError">Passwords do not match</span>
+            </div>
+
+            <!-- Signup Button -->
+            <button type="submit" class="signup-button">Sign Up</button>
+
+            <!-- Back Button -->
+            <button type="button" class="back-button" onclick="history.back()">Back</button>
+
+            <!-- Login Prompt -->
+            <p class="login-prompt">
+                Already have an account? <a href="#">Login</a>
+            </p>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="registeration.js"></script>
+    
+</body>
+</html>
+
