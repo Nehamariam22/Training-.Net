@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+      * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+}
+.login-container {
+    background: white;
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+h3{
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 24px;
+}
+.input-group input{
+    width:100%;
+    border:1px solid #ccc;
+    border-radius:5px;
+    padding:8px;
+    font-size:16px;
+    outline:none;
+    transition: border-color 0.3s ease;
+   
+    
+}
+.input-group label {
+    position: absolute;
+    font-size: 16px;
+    color:rgb(51, 51, 51);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.input-group input:focus,
+.input-group input:not(:placeholder-shown) {
+    border-color: #6c63ff;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: -9px;
+    left: 9px;
+    font-size:12px;
+    background-color: white;
+    padding: 0 px;
+}
+
+.error-message{
+    display:none;
+    color:rgb(220, 53, 34);
+    font-size: 13px;
+    margin-top:4px;
+}
+
+.remember-me {
+    margin-bottom: 12px;
+}
+
+.remember-me input {
+    margin-right:8px;
+}
+
+.forgot-password {
+    text-align: left;
+    margin-bottom:12px;
+}
+.forgot-password a {
+    text-decoration: none;
+    color: #4940e6;
+}
+
+.login-button {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    background: linear-gradient(135deg, rgb(108, 99, 255),rgb(137, 131, 248) );
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.login-button:hover {
+    background: linear-gradient(135deg, #5b54d9, #7565d9);
+    transform: translateY(-2px);
+}
+
+.signup {
+    text-align: center;
+    margin-top: 12px;
+}
+
+.signup a {
+    color: rgb(108, 99, 255);
+    text-decoration: none;
+}
+
+@media (max-width: 500px) {
+    .login-container {
+        padding:24px;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+
+
+    <div class="login-container">
+        <form id="loginForm" class="login-form" novalidate>
+            <h3>Welcome Back!</h3>
+            <h3>Login to your account</h3>
+
+            <div class="input-group">
+                <input type="email" id="email" name="email" required>
+                <label for="email">Enter your email</label>
+                <span class="error-message" id="emailError">Invalid email format</span>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password" name="password" required>
+                <label for="password">Enter your password</label>
+                <span class="error-message" id="passwordError">Password is required</span>
+            </div>
+
+            <div class="remember-me">
+                <input type="checkbox" id="rememberMe" name="rememberMe">
+                <label for="rememberMe">Remember me</label>
+            </div>
+
+            <div class="forgot-password">
+                <a href="#">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="login-button">Login</button>
+
+            <span id="formError" style="display:none; color:red;">Please correct the errors before submitting.</span> 
+
+            <p class="signup">
+                New here? <a href="#">Sign up</a>
+            </p>
+
+        </form>
+    </div>
+
+<script>
+    // Validation and form submission
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        let email = document.getElementById('email').value.trim();
+        let password = document.getElementById('password').value.trim();
+        let valid = true;
+
+        // Email validation
+        let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailPattern.test(email)) {
+            document.getElementById('emailError').style.display = 'block';
+            valid = false;
+        } else {
+            document.getElementById('emailError').style.display = 'none';
+        }
+
+        // Password validation
+        let passwordPattern =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+        if (!passwordPattern.test(password)) {
+            document.getElementById('passwordError').style.display = 'block';
+            valid = false;
+        } else {
+            document.getElementById('passwordError').style.display = 'none';
+        }
+
+        // If valid, perform login action (you can replace this with actual login logic)
+        if (valid) {
+            alert('Login successful!');
+        }
+    });
+
+    // Forgot password link click event
+    document.getElementById('forgotPassword').addEventListener('click', function() {
+        alert('Redirecting to forgot password page...');
+        // Add redirection to forgot password logic here
+    });
+</script>
+
+</body>
+</html>

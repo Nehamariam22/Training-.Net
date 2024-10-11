@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: #f4f4f9;
+}
+
+.registration-container {
+    background: white;
+    padding:20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 30px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 24px;
+}
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select
+ {
+    width: 100%;
+    padding: 12px;
+    padding-top: 19 px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 12px;
+    transition: border-color 0.3s ease;
+}
+
+.input-group label {
+    position: absolute;
+    top: 0.9rem;
+    left: 0.8rem;
+    font-size: 1rem;
+    color: #999;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.input-group input:focus,
+.input-group input:not(:placeholder-shown),
+.input-group textarea:focus,
+.input-group textarea:not(:placeholder-shown),
+.input-group select:focus,
+.input-group select:not(:placeholder-shown) {
+    border-color: #4CAF50;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:focus + label,
+.input-group textarea:not(:placeholder-shown) + label,
+.input-group select:focus + label,
+.input-group select:not(:placeholder-shown) + label {
+    top: -0.6rem;
+    left: 0.6rem;
+    font-size: 0.85rem;
+    background-color: white;
+    padding: 0 0.3rem;
+}
+
+.error-message {
+    display: none;
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+}
+
+.gender-group {
+    margin-bottom: 1.5rem;
+}
+
+.signup-button {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #4CAF50, #00BCD4);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.signup-button:hover {
+    background: linear-gradient(135deg, #388E3C, #00838F);
+    transform: translateY(-2px);
+}
+
+.back-button {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background: #f1f1f1;
+    margin-top: 1rem;
+    color: #555;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+    background: #e0e0e0;
+}
+
+.login-prompt {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.login-prompt a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+@media (max-width: 500px) {
+    .registration-container {
+        padding: 1.5rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <div class="registration-container">
+        <form id="registrationForm" class="registration-form" novalidate>
+            <h2>Register</h2>
+
+            <!-- First Name -->
+            <div class="input-group">
+                <input type="text" id="firstName" name="firstName" required>
+                <label for="firstName">First Name</label>
+                <span class="error-message" id="firstNameError">Only alphabets allowed</span>
+            </div>
+
+            <!-- Last Name -->
+            <div class="input-group">
+                <input type="text" id="lastName" name="lastName" required>
+                <label for="lastName">Last Name</label>
+                <span class="error-message" id="lastNameError">Only alphabets allowed</span>
+            </div>
+
+            <!-- Date of Birth -->
+            <div class="input-group">
+                <input type="date" id="dob" name="dob" >
+                <label for="dob">Date of Birth</label>
+            </div>
+
+            <!-- Gender -->
+            <div class="gender-group">
+                <label>Gender:</label>
+                <input type="radio" id="male" name="gender" value="male" required> Male
+                <input type="radio" id="female" name="gender" value="female" required> Female
+                <input type="radio" id="other" name="gender" value="other" required> Other
+            </div>
+
+            <!-- Phone Number -->
+            <div class="input-group">
+                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Phone Number">
+                <span class="error-message" id="phoneError">Invalid phone number format</span>
+            </div>
+
+            <!-- Email -->
+            <div class="input-group">
+                <input type="email" id="email" name="email" required>
+                <label for="email">Email Address</label>
+                <span class="error-message" id="emailError">Invalid email format</span>
+            </div>
+
+            <!-- Address -->
+            <div class="input-group">
+                <textarea id="address" name="address" rows="3" required></textarea>
+                <label for="address">Address</label>
+            </div>
+
+            <!-- State -->
+            <div class="input-group">
+                <select id="state" name="state" required>
+                    <option value="">Select State</option>
+                    <option value="kerala">kerala</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                </select>
+                <label for="state">State</label>
+            </div>
+
+            <!-- City (updates based on state) -->
+            <div class="input-group">
+                <select id="city" name="city" required>
+                    <option value="">Select City</option>
+                </select>
+                <label for="city">City</label>
+            </div>
+
+            <!-- Username -->
+            <div class="input-group">
+                <input type="text" id="username" name="username" required>
+                <label for="username">Username</label>
+                <span class="error-message" id="usernameError">Only alphabets and numbers</span>
+            </div>
+
+            <!-- Password -->
+            <div class="input-group">
+                <input type="password" id="password" name="password" required>
+                <label for="password">Password</label>
+                <span class="error-message" id="passwordError">Password is required</span>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="input-group">
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <label for="confirmPassword">Confirm Password</label>
+                <span class="error-message" id="confirmPasswordError">Passwords do not match</span>
+            </div>
+
+            <!-- Signup Button -->
+            <button type="submit" class="signup-button">Sign Up</button>
+
+            <!-- Back Button -->
+            <button type="button" class="back-button" onclick="history.back()">Back</button>
+
+            <!-- Login Prompt -->
+            <p class="login-prompt">
+                Already have an account? <a href="#">Login</a>
+            </p>
+        </form>
+    </div>
+    <script>
+         document.addEventListener('DOMContentLoaded', function() {
+
+// City update based on state selection
+document.getElementById('state').addEventListener('change', function() {
+    const citySelect = document.getElementById('city');
+    const selectedState = this.value;
+    citySelect.innerHTML = '<option value="" disabled selected>Select City</option>'; // Reset city options
+
+    if (selectedState === 'kerala') {
+        citySelect.innerHTML += '<option value="kochi">Kochi</option>';
+        citySelect.innerHTML += '<option value="tvm">TVM</option>';
+        citySelect.innerHTML += '<option value="alappuzha">Alappuzha</option>';
+    } else if (selectedState === 'Tamil Nadu') {
+        citySelect.innerHTML += '<option value="Chennai">Chennai</option>';
+        citySelect.innerHTML += '<option value="Kanyakumari">Kanyakumari</option>';
+        citySelect.innerHTML += '<option value="Coimbatore">Coimbatore</option>';
+    } else if (selectedState === 'Karnataka') {
+        citySelect.innerHTML += '<option value=" Bengaluru"> Bengaluru</option>';
+        citySelect.innerHTML += '<option value="Mysore">Mysore</option>';
+        citySelect.innerHTML += '<option value="Coorg">Coorg</option>';
+    }  else if (selectedState === 'Andhra Pradesh') {
+        citySelect.innerHTML += '<option value=" Visakhapatnam"> Visakhapatnam</option>';
+        citySelect.innerHTML += '<option value="Vijayawada">Vijayawada</option>';
+        citySelect.innerHTML += '<option value="Guntur ">Guntur </option>';
+    }
+});
+//date
+var todayDate = new Date();
+    var month = todayDate. getMonth() + 1;
+    var year = todayDate.getUTCFullYear();
+    var tdate = todayDate. getDate();
+    var maxDate = year + "-" + month + "-" +tdate;
+   
+    document.getElementById("dob").setAttribute("max",maxDate);
+
+
+// Form submission and validation
+document.getElementById('registrationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    let valid = true;
+
+    // First name validation
+    let firstName = document.getElementById('firstName').value.trim();
+    if (!/^[a-zA-Z]+$/.test(firstName)) {
+        document.getElementById('firstNameError').style.display = 'block';
+        valid = false;
+    } else {
+        document.getElementById('firstNameError').style.display = 'none';
+    }
+
+    // Last name validation
+    let lastName = document.getElementById('lastName').value.trim();
+    if (!/^[a-zA-Z]+$/.test(lastName)) {
+        document.getElementById('lastNameError').style.display = 'block';
+        valid = false;
+    } else {
+        document.getElementById('lastNameError').style.display = 'none';
+    }
+
+    // Email validation
+    let email = document.getElementById('email').value.trim();
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        document.getElementById('emailError').style.display = 'block';
+        valid = false;
+    } else {
+        document.getElementById('emailError').style.display = 'none';
+    }
+
+    // Phone number validation
+    let phoneNumber = document.getElementById('phoneNumber').value.trim();
+    let phonePattern =  /^[+]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,4}[-\s\.]?[0-9]{1,9}$/;
+    if (!phonePattern.test(phoneNumber)) {
+        document.getElementById('phoneError').style.display = 'block';
+        valid = false;
+    } else {
+        document.getElementById('phoneError').style.display = 'none';
+    }
+
+    // Password validation
+    let password = document.getElementById('password').value.trim();
+    if (password.length < 6) {
+        document.getElementById('passwordError').style.display = 'block';
+        valid = false;
+    } else {
+        document.getElementById('passwordError').style.display = 'none';
+    }
+
+    // Confirm password validation
+    let confirmPassword = document.getElementById('confirmPassword').value.trim();
+    if (password !== confirmPassword) {
+        document.getElementById('confirmPasswordError').style.display = 'block';
+        valid = false;
+    } else {
+        document.getElementById('confirmPasswordError').style.display = 'none';
+    }
+
+    if (valid) {
+        alert('Registration successful!');
+        // Here you would typically submit the form or send data to the server.
+    }
+});
+
+
+
+});
+    </script>
+    </body>
+    </html>
