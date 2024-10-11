@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <form id="loginForm" class="login-form" novalidate>
+            <h3>Welcome Back!</h3>
+            <h3>Login to your account</h3>
+
+            <div class="input-group">
+                <input type="email" id="email" name="email" required>
+                <label for="email">Enter your email</label>
+                <span class="error-message" id="emailError">Invalid email format</span>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password" name="password" required>
+                <label for="password">Enter your password</label>
+                <span class="error-message" id="passwordError">Password is required</span>
+            </div>
+
+            <div class="remember-me">
+                <input type="checkbox" id="rememberMe" name="rememberMe">
+                <label for="rememberMe">Remember me</label>
+            </div>
+
+            <div class="forgot-password">
+                <a href="#">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="login-button">Login</button>
+
+            <span id="formError" style="display:none; color:red;">Please correct the errors before submitting.</span> 
+
+            <p class="signup">
+                New here? <a href="#">Sign up</a>
+            </p>
+
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="login.js"></script>
+</body>
+</html>

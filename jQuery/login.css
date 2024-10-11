@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+}
+.login-container {
+    background: white;
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+h3{
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 24px;
+}
+.input-group input{
+    width:100%;
+    border:1px solid #ccc;
+    border-radius:5px;
+    padding:8px;
+    font-size:16px;
+    outline:none;
+    transition: border-color 0.3s ease;
+   
+    
+}
+.input-group label {
+    position: absolute;
+    font-size: 16px;
+    color:rgb(51, 51, 51);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.input-group input:focus,
+.input-group input:not(:placeholder-shown) {
+    border-color: #6c63ff;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: -9px;
+    left: 9px;
+    font-size:12px;
+    background-color: white;
+    padding: 0 px;
+}
+
+.error-message{
+    display:none;
+    color:rgb(220, 53, 34);
+    font-size: 13px;
+    margin-top:4px;
+}
+
+.remember-me {
+    margin-bottom: 12px;
+}
+
+.remember-me input {
+    margin-right:8px;
+}
+
+.forgot-password {
+    text-align: left;
+    margin-bottom:12px;
+}
+.forgot-password a {
+    text-decoration: none;
+    color: #4940e6;
+}
+
+.login-button {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    background: linear-gradient(135deg, rgb(108, 99, 255),rgb(137, 131, 248) );
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.login-button:hover {
+    background: linear-gradient(135deg, #5b54d9, #7565d9);
+    transform: translateY(-2px);
+}
+
+.signup {
+    text-align: center;
+    margin-top: 12px;
+}
+
+.signup a {
+    color: rgb(108, 99, 255);
+    text-decoration: none;
+}
+
+@media (max-width: 500px) {
+    .login-container {
+        padding:24px;
+    }
+}
+
+
