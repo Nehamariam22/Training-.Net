@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,100,1,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,100,1,0" />
+    <link rel="stylesheet" href="finalproject.css">
+</head>
+<body>
+    <div class="container">
+
+        <div class="header">
+            <div class="header-content">
+                <div class="header-search">
+                <div class="search">
+                    <span class="search-icon material-symbols-outlined">search</span>
+                    <input class="search-input" type="search" placeholder="Search" > </div>
+                </div>
+                <nav class="nav">
+                    
+                    <ul class="nav-list">
+                        <li class="nav-items">
+                            <span class="nav-open">Open for folder</span>
+                        </li>
+                        <li class="nav-items">
+                            <span class="nav-span"> <i class="fa-solid fa-toggle-on" style="color: #19e916;"></i> </span>
+                        </li>
+                        
+                        <li class="nav-items">
+                            <span class="nav-span"><i class="fa-regular fa-bell" style="color: #0a0a0a;"></i></span>
+                        </li>
+                        <li class="nav-items">
+                            <div class="profile">
+                                <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg" alt="profile" > 
+                            </div>
+                        </li>
+                        
+                        <li class="nav-items">
+                            <span  class="nav-name">Kate Austen</span>
+                        </li>
+                       
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!---end navbar-->
+        <div class="subcontainer">
+            <div class="sidebar">
+                <div class="name"><img src="logo.png" alt="" width="50px" height="40px">bringova</div>
+                <ul class="menu">
+                    <li>
+                        <a href="#"> <span class="material-symbols-rounded">dashboard</span>
+                        <span class="menu-text">Live order</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="material-symbols-rounded">shopping_bag</span>
+                        <span class="menu-text">Order history</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="material-symbols-rounded">sell</span>
+                        <span class="menu-text">Offers</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="material-symbols-rounded">storefront</span>
+                        <span class="menu-text">Products</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="material-symbols-rounded">store</span>
+                        <span class="menu-text">Stock</span></a>
+                    </li>
+                    <li>
+                        <a href="#"> <span class="material-symbols-rounded"> forum</span>
+                        <span class="menu-text">Message</span></a>
+                    </li>
+                    <li>
+                        <a href="#"> <span class="material-symbols-rounded">settings</span>
+                        <span class="menu-text">Settings</span></a>
+                    </li>
+                </ul>
+                <div class="mode">Busy Mode <i class="fa-solid fa-toggle-on" style="color: #000000;"></i> </div>
+            </div>
+        
+        <!-----------end sidebar-->
+            <div class="maincontainer">
+                <div class="main">
+                       
+                        <div class="left-side">
+                            <div class="content-order">
+                                <div class="order-info">
+                                    <h2>Order Number <span>#256894</span></h2>
+                                <div class="message">  <span class="material-symbols-rounded">forum</span>
+                                    <span> Message Customer</span></div> 
+                                </div>
+                            </div>
+                            <div class="card">
+                                
+                                    <table class="table-body" >
+                                        <thead>
+                                        <tr>
+                                            <th class="item">Item Summary</th>
+                                            <th>QTY</th>
+                                            <th>Price</th>
+                                            <th>total price</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td class="item-summary"><img src="https://m.media-amazon.com/images/I/61bAfi-FTiL.jpg"  style="width: 40px;" alt="Chocolate milkshake"class="table-img"><span style="margin-left:7px;"> Chocolate Milkshake </span> </td>
+                                            <td>&times;1</td>
+                                            <td>&euro; 150.00</td>
+                                            <td>&euro; 150.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="item-summary"><img src="https://ananda.in/wp-content/uploads/2020/12/chocolate-shake-min.webp" alt="chocolate milkshake"class="table-img"> <span style="margin-left:-2px;">Chocolate Milkshake </span></td>
+                                            <td>&times;2</td>
+                                            <td>&euro; 7.50</td>
+                                            <td>&euro; 15.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="item-summary"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3HruqxkY8jQtLkbGKC0jIkLGEntsaAIjcLg&s" alt="finish" style="width: 40px;" class="table-img"><span style="margin-left:7px; "> Finish washer large 3kg</span></td>
+                                            <td>&times;5</td>
+                                            <td>&euro; 70.00</td>
+                                            <td>&euro; 210.00</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                          
+                            <div class="card">
+                                <table class="detail-table">
+                                    <thead>
+                                    <tr>
+                                        <th colspan="2" class="heading"> Customer And Order Details</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td class="colone">Customer Name</td>
+                                        <td class="col">Harun Alex</td>   
+                                    </tr>
+                                    <tr>
+                                        <td class="colone">Phone Number</td>
+                                        <td class="col">9867450231</td>   
+                                    </tr>
+                                    <tr>
+                                        <td class="colone">Bag Option</td>
+                                        <td class="col">No Bag</td> 
+                                    </tr>
+                                    <tr>
+                                        <td class="colone">Type</td>
+                                        <td class="col">Delivery</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colone">Note</td>
+                                        <td class="col">N/A</td>   
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="right-side">
+                            <div class="card">
+                                <div class="rider-details ">
+                                    <span > <h3>Rider Details</h3> </span>
+                                    <div class="rider-info"><img src="https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg" alt="Rider Image">
+                                    <span>Robert Suvent</span>
+                                    
+                                    <button class="track-btn">Track Rider</button></div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                
+                            <table class="ctable">
+                                <thead>
+                                    <tr>
+                                        <th class="text-summary">Order Summary</th>
+                                        <th class="on">On the way</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td class="col1">Order Created</td>
+                                        <td class="col2">Sun,oct,7,2024</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col1">Order Time</td>
+                                        <td class="col2">7:10 PM</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col1">Subtotal</td>
+                                        <td class="col2">&euro;375.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col1">Delivery Fee</td>
+                                        <td class="col2">&euro;0.00</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="card">
+                                <table class="table-total">
+                                    <tr >
+                                        <td style="font-weight: 800;">Total</td>
+                                        <td style="text-align: right; padding-left: 180px;">$375.00</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="card">
+                                <h3 style="text-align: left;">Delivery Address</h3>
+                            <p style="text-align: left;">Address line: 14 Anglesey Road<br>
+                               Flat / Building Name: James Court <br>
+                               Street Name: Anglesey Road <br>
+                               Postcode: En3 4hy
+                           </p> </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        
+        
+
+        
+      
+    </div>
+</body>
+</html>
