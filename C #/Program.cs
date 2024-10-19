@@ -1,56 +1,75 @@
 ﻿using System;
+using System.Collections.Generic;
 
 
-namespace Calculator
+namespace TodoList
 {
-     class Program
+    class Program
     {
+        static List<string> todoList = new List<string>();
         static void Main(string[] args)
         {
-            double num1, num2;
             int choice;
-            Console.WriteLine("Simple Calculator");
-
-            Console.Write("Enter the first number :");
-            num1 = Convert.ToDouble(Console.ReadLine());
-
-            Console.Write("Enter the second number :");
-            num2 = Convert.ToDouble(Console.ReadLine());
-
-            Console.WriteLine("/n Select your operation");
-            Console.WriteLine("1. Addition");
-            Console.WriteLine("2. Subtract");
-            Console.WriteLine("3. Multiply");
-            Console.WriteLine("4. Divide");
-            Console.Write("Enter yor choice :");
-            choice = Convert.ToInt32(Console.ReadLine());
-
-            switch (choice)
+            Console.WriteLine("Simple TO-DO List");
+            do
             {
-                case 1:
-                    Console.WriteLine($"Result:{num1} + {num2} = {num1 + num2}");
-                    break;
-                case 2:
-                    Console.WriteLine($"Result:{num1}- {num2} = {num1 - num2}");
-                    break;
-                case 3:
-                    Console.WriteLine($"Result:{num1} * {num2} = {num1 * num2}");
-                    break;
-                case 4:
-                    if (num2 != 0)
-                        Console.WriteLine($"Result:{num1} / {num2} = {num1 / num2}");
-                    else
-                    {
-                        Console.WriteLine("Error: Division by zero is not allowed.");
-                    }
-                    break;
-                default:
-                    Console.WriteLine("Error: Invalid choice. Please choose a number between 1 and 4.");
-                    break;
+                Console.WriteLine("\n Menu :");
+                Console.WriteLine("1. Add Task ");
+                Console.WriteLine("2. View Task");
+                Console.WriteLine("3. Remove the task");
+                Console.WriteLine("4. Exit");
+                Console.Write("Enter your choice :");
+                choice = Convert.ToInt32(Console.ReadLine());
 
-            }
-            Console.WriteLine("Press any key to exit.");
-            Console.ReadKey();
+                switch (choice)
+                {
+                    case 1:
+                        AddTask();
+                        break;
+                    case 2:
+                        ViewTask();
+                        break;
+                    case 3:
+                        RemoveTask();
+                        break;
+                    case 4:
+                        Console.WriteLine("Exit");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice please select 1-4.");
+                        break;
+                }
+            } while (choice != 4);
+           
         }
+        static void AddTask()
+        {
+            Console.Write("Enter the task: ");
+            string task = Console.ReadLine();
+            todoList.Add(task);
+            Console.WriteLine("Added successfully");
+        }
+        static void ViewTask()
+        {
+            if (todoList.Count == 0)
+            {
+                Console.WriteLine("\n No Task");
+            }
+            else
+            {
+                Console.WriteLine("To-Do List:");
+                for (int i = 0; i < todoList.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1}.{todoList[i]}");
+                }
+            }
+        }
+        static void RemoveTask()
+        {
+            Console.Write("Enter the task number to  completed: ");
+            int taskNumber = Convert.ToInt32(Console.ReadLine());
+            todoList.RemoveAt(taskNumber - 1);
+        }
+
     }
 }
