@@ -1,0 +1,165 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Collections;
+using System.Xml.Linq;
+
+namespace Inventory
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+        SqlConnection sqlConnection = new SqlConnection("server=DESKTOP-QQIFP8N\\SQLEXPRESS01;database=Inventory;integrated security=true");
+        SqlCommand sqlCommand;
+        SqlDataReader reader;
+        string sql;
+
+        
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string product_name = txtname.Text;
+            int quantity = int.Parse(txtquantity.Text);
+            decimal price = decimal.Parse(txtprice.Text);
+            string supplier =(txtsupplier.Text);
+
+            sql = "INSERT INTO products (product_name, quantity, price, supplier) VALUES (@name, @quantity, @price, @supplier)";
+            sqlConnection.Open();
+            SqlCommand sqlCommand = new SqlCommand(sql, sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@name", product_name);
+            sqlCommand.Parameters.AddWithValue("@quantity", quantity);
+            sqlCommand.Parameters.AddWithValue("@price", price);
+            sqlCommand.Parameters.AddWithValue("@supplier", supplier);
+
+            sqlCommand.ExecuteNonQuery();
+            MessageBox.Show("Record Added Sucessfully");
+            sqlConnection.Close();
+            display_products();
+
+            txtname.Clear();
+            txtquantity.Clear();
+            txtprice.Clear();
+            txtsupplier.Clear();
+            txtname.Focus();
+          
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string product_name = txtname.Text;
+            int quantity = int.Parse(txtquantity.Text);
+            decimal price = decimal.Parse(txtprice.Text);
+            sqlConnection.Open();
+            sql = "UPDATE products set quantity = @quantity, price = @price WHERE product_name = @name";
+            SqlCommand sqlCommand = new SqlCommand(sql, sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@quantity", quantity);
+            sqlCommand.Parameters.AddWithValue("@price", price);
+            sqlCommand.Parameters.AddWithValue("@name", product_name);
+            sqlCommand.ExecuteNonQuery();
+            sqlConnection.Close();
+            display_products();
+            MessageBox.Show("Record Updated Successfully");
+            txtquantity.Clear();
+            txtprice.Clear();
+            txtsupplier.Clear();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string product_name = txtname.Text;
+
+            sqlConnection.Open();
+            sql = "DELETE from products where product_name=@name";
+            SqlCommand sqlCommand = new SqlCommand(sql, sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@name", product_name);
+            sqlCommand.ExecuteNonQuery();
+            sqlConnection.Close();
+            display_products();
+            MessageBox.Show("Record Deleted Successfully");
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string product_name = txtname.Text;
+           
+
+            sqlConnection.Open();
+            sql = "SELECT * FROM products WHERE product_name LIKE @search";
+            SqlCommand sqlCommand = new SqlCommand(sql, sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@search", "%" + product_name + "%");
+            
+
+            sqlCommand.ExecuteNonQuery();
+
+            SqlDataAdapter da = new SqlDataAdapter(sqlCommand);  // Adapter to fetch data
+            DataTable dt = new DataTable();  // DataTable to hold the search result
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+            
+
+
+            sqlConnection.Close();
+            txtname.Clear();
+            txtname.Focus();
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+
+        }
+
+        private void display_products()
+        {
+            sqlConnection.Open();
+            sql = "SELECT * FROM products";
+            SqlCommand sqlCommand = new SqlCommand(sql, sqlConnection);
+            sqlCommand.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(sqlCommand);
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+            sqlConnection.Close();
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            display_products();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            sqlConnection.Open();
+            sql = "SELECT COUNT(*) AS TotalProducts, SUM(quantity * price) AS TotalInventoryValue FROM products";
+            SqlCommand sqlCommand = new SqlCommand(sql, sqlConnection);
+
+            SqlDataAdapter da = new SqlDataAdapter(sqlCommand);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+
+
+            if (dt.Rows.Count > 0)
+            {
+                TotalProducts.Text = "Total Products: " + dt.Rows[0]["TotalProducts"].ToString();
+                TotalInventoryValue.Text = "Total Inventory Value: " + dt.Rows[0]["TotalInventoryValue"].ToString();
+            }
+            sqlConnection.Close();
+
+
+        }
+       
+    }
+}
